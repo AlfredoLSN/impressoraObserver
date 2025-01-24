@@ -1,10 +1,20 @@
 package com.example;
 
-public class Impressora {
+import java.util.Observable;
+
+public class Impressora extends Observable{
     private ImpressoraEstado estado;
+    private String impressoraNome;
     
     public Impressora(){
         this.estado = ImpressoraEstadoIniciada.getInstance();
+    }
+    public String getImpressoraNome(){
+        return this.impressoraNome;
+    }
+    @Override
+    public String toString() {
+        return impressoraNome;
     }
     public void setEstado(ImpressoraEstado estado){
         this.estado = estado;
@@ -13,6 +23,8 @@ public class Impressora {
         return estado.iniciar(this);
     }
     public boolean ficarPronta(){
+        setChanged();
+        notifyObservers();
         return estado.ficarPronta(this);
     }
     public boolean imprimir(){
