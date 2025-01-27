@@ -17,6 +17,6 @@ public class Computador implements Observer{
         impressora.addObserver(this);
     }
     public void update(Observable impressora, Object arg1){
-        this.lastNotification = "A impressora " +  impressora.toString();
+        this.lastNotification = "A impressora " +  impressora.toString() + " está pronta";
     }
 }

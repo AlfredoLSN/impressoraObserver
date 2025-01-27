@@ -6,7 +6,8 @@ public class Impressora extends Observable{
     private ImpressoraEstado estado;
     private String impressoraNome;
     
-    public Impressora(){
+    public Impressora(String impressoraNome){
+        this.impressoraNome = impressoraNome;
         this.estado = ImpressoraEstadoIniciada.getInstance();
     }
     public String getImpressoraNome(){
